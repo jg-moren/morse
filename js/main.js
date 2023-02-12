@@ -3,18 +3,25 @@ const texto = document.getElementById("texto-codigo");
 let press = false;
 let start = Date.now();
 
+window.KeyboardEvent
+
 window.addEventListener('keypress', (e) => {
-    if(!press){
+
+    if(!press && e.code === 'Space'){
         press = true;
         start = Date.now();
+    }else if(e.code === 'Enter'){
+        texto.value += '/';
     }
 });
 
 window.addEventListener('keyup', (e) => { 
-    press = false;
-    time = Date.now() - start;
-    console.log(time);
-    texto.value += morseCode(time);
+    if(e.code ==='Space'){
+        press = false;
+        time = Date.now() - start;
+        console.log(time);
+        texto.value += morseCode(time);
+    }
 });
 
 function morseCode(time){
