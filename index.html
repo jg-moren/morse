@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Morse</title>
+    </head>
+    <body>
+        <div id="morse" style="font-size:100px;"></div>
+        <script>
+            morse = document.getElementById("morse")
+
+            press = false
+            start = Date.now();
+
+            window.addEventListener('keypress', (e) => {
+                if(!press){
+                    press = true
+                    start = Date.now();
+                }
+                
+            });
+            window.addEventListener('keyup', (e) => { 
+                press = false
+                time = Date.now() - start;
+                console.log(time)
+                morse.innerHTML = morse.innerHTML + morseCode(time)
+            });
+
+            function morseCode(time){
+                if(time > 500){
+                    return "-"
+                }
+                else{
+                    return "."
+                }
+            }
+        </script>
+    </body>
+</html>
