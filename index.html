@@ -2,37 +2,20 @@
 <html>
     <head>
         <title>Morse</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div id="morse" style="font-size:100px;"></div>
-        <script>
-            morse = document.getElementById("morse")
-
-            press = false
-            start = Date.now();
-
-            window.addEventListener('keypress', (e) => {
-                if(!press){
-                    press = true
-                    start = Date.now();
-                }
-                
-            });
-            window.addEventListener('keyup', (e) => { 
-                press = false
-                time = Date.now() - start;
-                console.log(time)
-                morse.innerHTML = morse.innerHTML + morseCode(time)
-            });
-
-            function morseCode(time){
-                if(time > 500){
-                    return "-"
-                }
-                else{
-                    return "."
-                }
-            }
-        </script>
+        <div class="morse">
+            <h1 class="titulo">Código Morse</h1>
+            <label for="texto-codigo"></label>
+            <textarea id="texto-codigo" readonly></textarea>
+            <button class="morse__botao" id="botao-limpar">Limpar</button>
+        </div> 
+        
+        <script src="js/main.js"></script>
     </body>
 </html>
