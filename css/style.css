@@ -2,7 +2,7 @@
     background-color: antiquewhite;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 6fr 1fr;
+    grid-template-rows: 5fr 1fr;
     text-align: center;
 }
 
@@ -31,5 +31,16 @@
     text-transform: uppercase;
     width: 20vw;
     margin: 1em auto;
-    grid-column: span span;
+}
+
+.container-tempo{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    align-items: center;
+}
+
+.barra{
+    width: 20vw;
+    justify-self: center;
 }

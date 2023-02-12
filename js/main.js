@@ -1,21 +1,22 @@
 const textoConsole = document.getElementById("texto-codigo");
-const textoTraducao = document.getElementById("texto-traducao");    
+const textoTraducao = document.getElementById("texto-traducao");   
+const barraTempo = document.getElementById("barra-tempo"); 
 
 let press = false;
 let start = Date.now();
-let palavras;
 
 window.KeyboardEvent
 
-window.addEventListener('keypress', (e) => {
-
+window.addEventListener('keydown', (e) => {
+    console.log(e.code);
     if(!press && e.code === 'Space'){
         press = true;
         start = Date.now();
     }else if(e.code === 'Enter'){
         textoConsole.value += ' ';
-        palavras = textoConsole.value.split(' '); 
-        traduzir();
+        traduzir(textoConsole.value);
+    }else if(e.code === 'Backspace'){
+        textoConsole.value = textoConsole.value.slice(0, -1);
     }
 });
 
@@ -28,24 +29,11 @@ window.addEventListener('keyup', (e) => {
 });
 
 function morseCode(time){
-    if(time > 200){
+    if(time > barraTempo.value){
         return "-"
     }
     else{
         return "."
-    }
-}
-
-function traduzir(){
-    if(palavras!==undefined){
-        textoTraducao.value = '';
-        for(let i=0; i<palavras.length; i++){
-            for(let j=0; j<simbolosTraducao.length; j++){
-                if(palavras[i]===simbolosTraducao[j][0]){
-                    textoTraducao.value += simbolosTraducao[j][1];
-                }
-            }
-        }
     }
 }
 
@@ -56,41 +44,4 @@ botaoLimpar.onclick = ()=>{
     textoTraducao.value = '';
 }
 
-const simbolosTraducao = [
-    [".-", 'A'],
-    ["-...", 'B'],
-    ["-.-.", 'C'],
-    ["-..", 'D'],
-    [".", 'E'],
-    ["..-.", 'F'],
-    ["--.", 'G'],
-    ["....", 'H'],
-    ["..", 'I'],
-    [".---", 'J'],
-    ["-.-", 'K'],
-    [".-..", 'L'],
-    ["--", 'M'],
-    ["-.", 'N'], 
-    ["---", 'O'],
-    [".--.", 'P'],
-    ["--.-", 'Q'],
-    [".-.", 'R'],
-    ["...", 'S'],
-    ["-", 'T'],
-    ["..-", 'U'],
-    ["...-", 'V'],
-    [".--", 'W'],
-    ["-..-", 'X'],
-    ["-.--", 'Y'],
-    ["--..", 'Z'],
-    ["-----", '0'],
-    [".----", '1'],
-    ["..---", '2'],
-    ["...--", '3'],
-    ["....-", '4'],
-    [".....", '5'],
-    ["-....", '6'],
-    ["--...", '7'],
-    ["---..", '8'],
-    ["----.", '9']
-];
+
