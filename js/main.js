@@ -1,4 +1,3 @@
-const morse = document.getElementById("morse");
 const texto = document.getElementById("texto-codigo");
 
 let press = false;

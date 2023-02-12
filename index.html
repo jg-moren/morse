@@ -8,14 +8,18 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body class="container">
         <div class="morse">
             <h1 class="titulo">Código Morse</h1>
             <label for="texto-codigo"></label>
             <textarea id="texto-codigo" readonly></textarea>
-            <button class="morse__botao" id="botao-limpar">Limpar</button>
+        </div>
+        <div class="traducao">
+            <h1 class="titulo">Tradução</h1>
+            <label for="texto-traduzido"></label>
+            <textarea id="texto-traduzido" readonly></textarea>
         </div> 
-        
+        <button class="morse__botao" id="botao-limpar">Limpar</button>
         <script src="js/main.js"></script>
     </body>
 </html>
