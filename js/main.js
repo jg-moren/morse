@@ -1,6 +1,6 @@
 const textoConsole = document.getElementById("texto-codigo");
 const textoTraducao = document.getElementById("texto-traducao");   
-const barraTempo = document.getElementById("barra-tempo"); 
+const barraTempo = document.getElementById("controle-velocidade"); 
 
 let press = false;
 let start = Date.now();
@@ -13,8 +13,8 @@ window.addEventListener('keydown', (e) => {
         press = true;
         start = Date.now();
     }else if(e.code === 'Enter'){
-        textoConsole.value += ' ';
         traduzir(textoConsole.value);
+        textoConsole.value += ' ';
     }else if(e.code === 'Backspace'){
         textoConsole.value = textoConsole.value.slice(0, -1);
     }

@@ -37,25 +37,14 @@ const simbolosTraducao = {
     "----.": '9'
 }
 
-
-
-
-
-function traduzir(palavra){
-    if(palavra!==undefined){
-        const letras = palavra.split(' '); 
-        letras.pop();
-        console.log(letras);
+function traduzir(letras){
+    if(letras !== undefined){;
+        let simbolo = letras.split(' ');
         textoTraducao.value = '';
 
-        for(let letra of letras){
+        for(let letra of simbolo){
             const letraTraduzida = simbolosTraducao[letra];
-            if(letraTraduzida === undefined){
-                textoTraducao.value += '∄';
-            }else{
-                textoTraducao.value += letraTraduzida;
-            }
-            
+            letraTraduzida === undefined ? textoTraducao.value += '∄' : textoTraducao.value += letraTraduzida;
         }
 
     }
