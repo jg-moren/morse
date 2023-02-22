@@ -1,6 +1,7 @@
 const textoConsole = document.getElementById("texto-codigo");
 const textoTraducao = document.getElementById("texto-traducao");   
 const barraTempo = document.getElementById("controle-velocidade"); 
+const audio = document.getElementById("audio-morse");
 
 let press = false;
 let start = Date.now();
@@ -12,6 +13,7 @@ window.addEventListener('keydown', (e) => {
     if(!press && e.code === 'Space'){
         press = true;
         start = Date.now();
+        audio.play();
     }else if(e.code === 'Enter'){
         traduzir(textoConsole.value);
         textoConsole.value += ' ';
@@ -25,6 +27,7 @@ window.addEventListener('keyup', (e) => {
         press = false;
         time = Date.now() - start;
         textoConsole.value += morseCode(time);
+        audio.pause();
     }
 });
 
@@ -36,12 +39,4 @@ function morseCode(time){
         return "."
     }
 }
-
-const botaoLimpar = document.getElementById("botao-limpar");
-
-botaoLimpar.onclick = ()=>{
-    textoConsole.value = '';
-    textoTraducao.value = '';
-}
-
 
